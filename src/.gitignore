@@ -1,0 +1,9 @@
+/bin/
+*.class
+java/teste.java
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
