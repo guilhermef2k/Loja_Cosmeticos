@@ -1,7 +1,6 @@
 package service;
 
 import java.util.List;
-
 import model.ItemTransacao;
 import model.Produto;
 import model.Transacao;
@@ -56,7 +55,7 @@ public class TransacaoService {
         for (ItemTransacao item : transacao.getItens()) {
             Produto produto = item.getProduto();
 
-            if (produto.getQuantidadeEstoque() < item.getQuantidade()) {
+            if (produto.getEstoque() < item.getQuantidade()) {
                 throw new IllegalArgumentException(
                     "Estoque insuficiente para o produto: " + produto.getNome()
                 );
@@ -68,8 +67,8 @@ public class TransacaoService {
         for (ItemTransacao item : transacao.getItens()) {
             Produto produto = item.getProduto();
 
-            int novoEstoque = produto.getQuantidadeEstoque() - item.getQuantidade();
-            produto.setQuantidadeEstoque(novoEstoque);
+            int novoEstoque = produto.getEstoque() - item.getQuantidade();
+            produto.setEstoque(novoEstoque);
         }
     }
 
@@ -77,8 +76,8 @@ public class TransacaoService {
         for (ItemTransacao item : transacao.getItens()) {
             Produto produto = item.getProduto();
 
-            int novoEstoque = produto.getQuantidadeEstoque() + item.getQuantidade();
-            produto.setQuantidadeEstoque(novoEstoque);
+            int novoEstoque = produto.getEstoque() + item.getQuantidade();
+            produto.setEstoque(novoEstoque);
         }
     }
 

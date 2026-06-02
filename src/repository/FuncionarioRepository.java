@@ -1,5 +1,8 @@
+package repository;
+
 import java.util.ArrayList;
 import java.util.List;
+import model.Funcionario;
 
 public class FuncionarioRepository {
     private static List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();

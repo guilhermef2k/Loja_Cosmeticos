@@ -1,3 +1,7 @@
+package controller;
+
+import service.ClientService;
+
 public class ClientController {
     private ClientService clientService;
 
@@ -25,7 +29,7 @@ public class ClientController {
 
     public void buscarPorCpf(String cpf) {
         try {
-            Client client = clientService.buscarClientPorCpf(cpf);
+            Cliente client = clientService.buscarClientPorCpf(cpf);
             System.out.println("Cliente encontrado: " + client.getName());
         } catch (ClientNotFoundException e) {
             System.out.println("✗ " + e.getMessage());

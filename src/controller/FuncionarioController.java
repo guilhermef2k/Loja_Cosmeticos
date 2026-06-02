@@ -1,3 +1,8 @@
+package controller;
+
+import service.FuncionarioService;
+import model.Funcionario;
+
 public class FuncionarioController {
     private FuncionarioService funcionarioService;
 

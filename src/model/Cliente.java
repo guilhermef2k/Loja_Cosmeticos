@@ -1,12 +1,13 @@
+package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client extends User {
-    private static List<Client> listaClientes = new ArrayList<Client>();
+public class Cliente extends User {
+    private static List<Cliente> listaClientes = new ArrayList<Cliente>();
     private String endereco;
     private String telefone;
 
-    public Client (String name, String email, String password, String cpf, boolean ativo, String endereco, String telefone) {
+    public Cliente (String name, String email, String password, String cpf, boolean ativo, String endereco, String telefone) {
         super(name, email, password, cpf, ativo);
         this.endereco = endereco;
         this.telefone = telefone;
@@ -28,12 +29,12 @@ public class Client extends User {
         this.endereco = endereco;
         this.telefone = telefone;
     }
-    public void adicionarCliente(Client cliente) {
+    public void adicionarCliente(Cliente cliente) {
         listaClientes.add(cliente);
     }
 
     public void listarClientes() {
-        for (Client cliente : listaClientes) {
+        for (Cliente cliente : listaClientes) {
             cliente.verCliente();
         }
     }
@@ -46,7 +47,7 @@ public class Client extends User {
         System.out.println("Telefone: " + getTelefone());
     }
 
-    public void deletarCliente(Client cliente) {
+    public void deletarCliente(Cliente cliente) {
         listaClientes.remove(cliente);
     }
 

@@ -1,3 +1,7 @@
+package service;
+
+import repository.FuncionarioRepository;
+import model.Funcionario;
 public class FuncionarioService {
     private FuncionarioRepository funcionarioRepository;
 

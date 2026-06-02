@@ -1,3 +1,8 @@
+package service;
+
+import model.Cliente;
+import repository.ClientRepository;
+
 public class ClientService {
     private ClientRepository clientRepository;
 
@@ -6,12 +11,12 @@ public class ClientService {
     }
 
     public void criarClient(String name, String email, String password, String cpf, String endereco, String telefone) {
-        Client client = new Client(name, email, password, cpf, true, endereco, telefone);
+        Cliente client = new Cliente(name, email, password, cpf, true, endereco, telefone);
         clientRepository.salvar(client);
     }
 
     public void editarClient(String cpf, String name, String email, String password, String endereco, String telefone) throws ClientNotFoundException {
-        Client client = clientRepository.findByCpf(cpf);
+        Cliente client = clientRepository.findByCpf(cpf);
         
         client.setName(name);
         client.setEmail(email);
@@ -22,12 +27,12 @@ public class ClientService {
         clientRepository.atualizar(client);
     }
 
-    public Client buscarClientPorCpf(String cpf) throws ClientNotFoundException {
+    public Cliente buscarClientPorCpf(String cpf) throws ClientNotFoundException {
         return clientRepository.findByCpf(cpf);
     }
 
     public void listarTodosClients() {
-        for (Client cliente : clientRepository.listarTodos()) {
+        for (Cliente cliente : clientRepository.listarTodos()) {
             System.out.println("==== Cliente ====");
             System.out.println("Nome: " + cliente.getName());
             System.out.println("Email: " + cliente.getEmail());
@@ -43,13 +48,13 @@ public class ClientService {
     }
 
     public void atualizarEndereco(String cpf, String novoEndereco) throws ClientNotFoundException {
-        Client client = clientRepository.findByCpf(cpf);
+        Cliente client = clientRepository.findByCpf(cpf);
         client.setEndereco(novoEndereco);
         clientRepository.atualizar(client);
     }
 
     public void atualizarTelefone(String cpf, String novoTelefone) throws ClientNotFoundException {
-        Client client = clientRepository.findByCpf(cpf);
+        Cliente client = clientRepository.findByCpf(cpf);
         client.setTelefone(novoTelefone);
         clientRepository.atualizar(client);
     }

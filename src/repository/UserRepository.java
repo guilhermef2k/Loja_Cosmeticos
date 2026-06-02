@@ -1,5 +1,8 @@
+package repository;
+
 import java.util.ArrayList;
 import java.util.List;
+import model.User;
 
 public class UserRepository {
     private static List<User> listaUsuarios = new ArrayList<User>();

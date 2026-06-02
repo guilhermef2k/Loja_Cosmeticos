@@ -1,3 +1,6 @@
+package controller;
+import  service.
+
 public class Userctrl {
     private UserService userService;
 

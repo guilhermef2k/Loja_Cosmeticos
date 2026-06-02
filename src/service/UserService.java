@@ -1,3 +1,10 @@
+package service;
+
+import repository.UserRepository;
+import model.User;
+import model.Cliente;
+import model.Funcionario;
+
 public class UserService {
     private UserRepository userRepository;
 
@@ -63,7 +70,7 @@ public class UserService {
         if (usuario instanceof Funcionario) {
             return "Funcionário";
         }
-        if (usuario instanceof Client) {
+        if (usuario instanceof Cliente) {
             return "Cliente";
         }
         return "Usuário";
