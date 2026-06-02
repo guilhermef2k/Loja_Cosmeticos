@@ -8,8 +8,8 @@ public class ItemTransacao {
     // Construtor
     public ItemTransacao(Produto produto, int quantidade, double precoUnitario) {
         this.produto = produto;
-        this.quantidade = quantidade;
-        this.precoUnitario = precoUnitario;
+        setQuantidade(quantidade);
+        setPrecoUnitario(precoUnitario);
     }
 
     // Getters
@@ -27,10 +27,16 @@ public class ItemTransacao {
 
     // Setters
     public void setQuantidade(int quantidade) {
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("A quantidade deve ser maior que zero.");
+        }
         this.quantidade = quantidade;
     }
 
     public void setPrecoUnitario(double precoUnitario) {
+        if (precoUnitario < 0) {
+            throw new IllegalArgumentException("O preço unitário não pode ser negativo.");
+        }
         this.precoUnitario = precoUnitario;
     }
 

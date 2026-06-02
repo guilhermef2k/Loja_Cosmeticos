@@ -71,15 +71,19 @@ public class Transacao {
 
     // Métodos do Carrinho
     public void adicionarItem(ItemTransacao item) {
-        if (item != null) {
-            itens.add(item);
+        if (item == null) {
+            throw new IllegalArgumentException("O item da transação não pode ser nulo.");
         }
+        itens.add(item);
+        calcularValorTotal();
     }
 
     public void removerItem(int indice) {
-        if (indice >= 0 && indice < itens.size()) {
-            itens.remove(indice);
+        if (indice < 0 || indice >= itens.size()) {
+            throw new IllegalArgumentException("Índice inválido.");
         }
+        itens.remove(indice);
+        calcularValorTotal();
     }
 
     public void limparCarrinho() {
