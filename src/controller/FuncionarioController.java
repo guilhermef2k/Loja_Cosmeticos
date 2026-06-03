@@ -1,7 +1,9 @@
-package controller;
+package controller; 
 
-import service.FuncionarioService;
 import model.Funcionario;
+import model.exceptions.FuncionarioNotFoundException;
+import service.FuncionarioService;
+
 
 public class FuncionarioController {
     private FuncionarioService funcionarioService;

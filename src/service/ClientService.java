@@ -1,6 +1,7 @@
 package service;
 
-import model.Cliente;
+import model.Client;
+import model.exceptions.ClientNotFoundException;
 import repository.ClientRepository;
 
 public class ClientService {

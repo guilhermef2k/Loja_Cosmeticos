@@ -1,9 +1,5 @@
 package model;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Cliente extends User {
-    private static List<Cliente> listaClientes = new ArrayList<Cliente>();
+public class Client extends User {
     private String endereco;
     private String telefone;
 
@@ -29,15 +25,6 @@ public class Cliente extends User {
         this.endereco = endereco;
         this.telefone = telefone;
     }
-    public void adicionarCliente(Cliente cliente) {
-        listaClientes.add(cliente);
-    }
-
-    public void listarClientes() {
-        for (Cliente cliente : listaClientes) {
-            cliente.verCliente();
-        }
-    }
     public void verCliente() {
         System.out.println("Nome: " + getName());
         System.out.println("Email: " + getEmail());
@@ -46,9 +33,4 @@ public class Cliente extends User {
         System.out.println("Endereco: " + getEndereco());
         System.out.println("Telefone: " + getTelefone());
     }
-
-    public void deletarCliente(Cliente cliente) {
-        listaClientes.remove(cliente);
-    }
-
 }

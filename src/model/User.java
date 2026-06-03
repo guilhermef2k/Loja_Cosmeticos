@@ -1,8 +1,4 @@
 package model;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
     private String name;
     private String email;
@@ -56,23 +52,11 @@ public class User {
         this.cpf = cpf;
         this.ativo = ativo;
     }
-    public void deletarUsuario(User usuario) {
-        listaUsuarios.remove(usuario);
-    }
-    public void adicionarUsuario(User usuario) {
-        listaUsuarios.add(usuario);
-    }
     public void verUsuario() {
         System.out.println("Nome: " + name);
         System.out.println("Email: " + email);
         System.out.println("CPF: " + cpf);
         System.out.println("Ativo: " + ativo);
-    }
-    private static List<User> listaUsuarios = new ArrayList<User>();
-    public void listarUsuarios() {
-        for (User usuario : listaUsuarios) {
-            usuario.verUsuario();
-        }
     }
     public String getPassword() {
         return password;

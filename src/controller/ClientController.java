@@ -1,6 +1,8 @@
 package controller;
-
+import model.Client;
+import model.exceptions.ClientNotFoundException;
 import service.ClientService;
+
 
 public class ClientController {
     private ClientService clientService;
