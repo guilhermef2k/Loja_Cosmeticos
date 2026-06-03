@@ -1,5 +1,5 @@
 package model;
-public class Client extends User {
+public class Cliente extends User {
     private String endereco;
     private String telefone;
 

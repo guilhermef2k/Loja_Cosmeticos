@@ -1,5 +1,5 @@
 package controller;
-import model.Client;
+import model.Cliente;
 import model.exceptions.ClientNotFoundException;
 import service.ClientService;
 

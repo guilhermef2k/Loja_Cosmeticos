@@ -5,12 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Client;
+import model.Cliente;
 import model.exceptions.ClientNotFoundException;
 
 public class ClientRepository {
     private static final String FILE_NAME = "clientes.txt";
-    private static List<Client> listaClientes = new ArrayList<Client>();
+    private static List<Cliente> listaClientes = new ArrayList<Cliente>();
 
     public ClientRepository() {
         carregar();
@@ -26,7 +26,7 @@ public class ClientRepository {
                 String[] dados = linha.split(";", -1);
 
                 if (dados.length == 7) {
-                    Client cliente = new Client(
+                    Cliente cliente = new Cliente(
                         dados[0],
                         dados[1],
                         dados[2],
@@ -42,7 +42,7 @@ public class ClientRepository {
         }
     }
 
-    public void salvar(Client cliente) {
+    public void salvar(Cliente cliente) {
         listaClientes.add(cliente);
         salvarNoArquivo();
     }
@@ -51,7 +51,7 @@ public class ClientRepository {
         try {
             FileWriter fileWriter = new FileWriter(FILE_NAME);
 
-            for (Client cliente : listaClientes) {
+            for (Cliente cliente : listaClientes) {
                 fileWriter.write(
                     cliente.getName() + ";" +
                     cliente.getEmail() + ";" +

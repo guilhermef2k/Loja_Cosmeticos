@@ -1,6 +1,6 @@
 package service;
 
-import model.Client;
+import model.Cliente;
 import model.exceptions.ClientNotFoundException;
 import repository.ClientRepository;
 

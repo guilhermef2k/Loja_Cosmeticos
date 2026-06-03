@@ -1,6 +1,6 @@
 package controller;
-import  service.
-
+import  service.UserService;
+import model.User;
 public class Userctrl {
     private UserService userService;
 
