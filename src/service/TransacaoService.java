@@ -9,12 +9,12 @@ import repository.TransacaoRepository;
 public class TransacaoService {
     private TransacaoRepository transacaoRepository;
 
-    public TransacaoService(TransacaoRepository transacaoRepository) {
-        if (transacaoRepository == null) {
+    public TransacaoService() {
+        /*if (transacaoRepository == null) {
             throw new IllegalArgumentException("O repositório de transações não pode ser nulo.");
-        }
+        }*/
 
-        this.transacaoRepository = transacaoRepository;
+        this.transacaoRepository = new TransacaoRepository();
     }
 
     public double calcularValorTotal(Transacao transacao) {

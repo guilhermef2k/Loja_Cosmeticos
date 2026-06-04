@@ -12,12 +12,12 @@ import service.TransacaoService;
 public class TransacaoController {
     private TransacaoService transacaoService;
 
-    public TransacaoController(TransacaoService transacaoService) {
-        if (transacaoService == null) {
+    public TransacaoController() {
+        /*if (transacaoService == null) {
             throw new IllegalArgumentException("O serviço de transações não pode ser nulo.");
-        }
+        }*/
 
-        this.transacaoService = transacaoService;
+        this.transacaoService = new TransacaoService();
     }
 
     public Transacao iniciarVenda(String id, Cliente cliente) {
