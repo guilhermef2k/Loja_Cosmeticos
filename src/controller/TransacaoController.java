@@ -13,10 +13,6 @@ public class TransacaoController {
     private TransacaoService transacaoService;
 
     public TransacaoController() {
-        /*if (transacaoService == null) {
-            throw new IllegalArgumentException("O serviço de transações não pode ser nulo.");
-        }*/
-
         this.transacaoService = new TransacaoService();
     }
 
