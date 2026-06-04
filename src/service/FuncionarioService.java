@@ -69,4 +69,37 @@ public class FuncionarioService {
             return "✓ Cargo atualizado com sucesso";
         }
     }
+
+    public Funcionario logar(String cpf, String senha) {
+        Funcionario funcionario = funcionarioRepository.findByCpf(cpf);
+        if (funcionario != null && funcionario.getSenha().equals(senha) && funcionario.isAtivo()) {
+            return funcionario;
+        }
+        return null;
+    }
+
+    public String darAcesso(String supervisorCpf, String nome, String email, String senha, String cpf, String cargo) {
+        Funcionario supervisor = funcionarioRepository.findByCpf(supervisorCpf);
+        if (supervisor == null) {
+            return "✗ Supervisor com CPF " + supervisorCpf + " não encontrado";
+        }
+        if (!supervisor.podeDarAcesso(cargo)) {
+            return "✗ " + supervisor.getCargo() + " não pode dar acesso a " + cargo;
+        }
+        if (funcionarioRepository.findByCpf(cpf) != null) {
+            return "✗ Funcionário com CPF " + cpf + " já cadastrado";
+        }
+        Funcionario novo = new Funcionario(nome, email, senha, cpf, true, cargo);
+        novo.setCpfSupervisor(supervisorCpf);
+        funcionarioRepository.salvar(novo);
+        return "✓ Acesso concedido para " + nome + " como " + cargo;
+    }
+
+    public void listarSubordinados(String cpfSupervisor) {
+        for (Funcionario f : funcionarioRepository.listarTodos()) {
+            if (f.getCpfSupervisor().equals(cpfSupervisor)) {
+                System.out.println("CPF: " + f.getCpf() + " | Nome: " + f.getNome() + " | Cargo: " + f.getCargo());
+            }
+        }
+    }
 }

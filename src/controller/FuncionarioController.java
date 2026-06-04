@@ -34,4 +34,16 @@ public class FuncionarioController {
     public void atualizarCargo(String cpf, String novoCargo) {
         System.out.println(funcionarioService.atualizarCargo(cpf, novoCargo));
     }
+
+    public Funcionario login(String cpf, String senha) {
+        return funcionarioService.logar(cpf, senha);
+    }
+
+    public void darAcesso(String supervisorCpf, String nome, String email, String senha, String cpf, String cargo) {
+        System.out.println(funcionarioService.darAcesso(supervisorCpf, nome, email, senha, cpf, cargo));
+    }
+
+    public void listarSubordinados(String cpfSupervisor) {
+        funcionarioService.listarSubordinados(cpfSupervisor);
+    }
 }

@@ -25,7 +25,7 @@ public class FuncionarioRepository {
             while ((linha = br.readLine()) != null) {
                 String[] dados = linha.split(";", -1);
 
-                if (dados.length == 6) {
+                if (dados.length >= 6) {
                     Funcionario funcionario = new Funcionario(
                         dados[0],
                         dados[1],
@@ -34,6 +34,9 @@ public class FuncionarioRepository {
                         Boolean.parseBoolean(dados[4]),
                         dados[5]
                     );
+                    if (dados.length >= 7) {
+                        funcionario.setCpfSupervisor(dados[6]);
+                    }
                     listaFuncionarios.add(funcionario);
                 }
             }
@@ -57,7 +60,8 @@ public class FuncionarioRepository {
                     funcionario.getSenha() + ";" +
                     funcionario.getCpf() + ";" +
                     funcionario.isAtivo() + ";" +
-                    funcionario.getCargo() + "\n"
+                    funcionario.getCargo() + ";" +
+                    funcionario.getCpfSupervisor() + "\n"
                 );
             }
 
