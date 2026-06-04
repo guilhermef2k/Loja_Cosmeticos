@@ -37,6 +37,7 @@ public class ProdutoRepository {
         }
     }
     public List<Produto> listarProdutos() {
+        carregarDadosDoArquivo();
         return new ArrayList<>(this.produtos);
     }
     public Produto buscarProdutoPorCodigo(String codigo) {
@@ -48,6 +49,7 @@ public class ProdutoRepository {
         return null;
     }
     private void carregarDadosDoArquivo() {
+        this.produtos.clear();
         File arquivo = new File(caminho);
         
         if (!arquivo.exists()) {
