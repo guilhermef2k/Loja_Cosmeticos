@@ -1,7 +1,6 @@
 package service;
 
 import model.Funcionario;
-import model.exceptions.FuncionarioNotFoundException;
 import repository.FuncionarioRepository;
 
 public class FuncionarioService {
@@ -11,30 +10,39 @@ public class FuncionarioService {
         this.funcionarioRepository = new FuncionarioRepository();
     }
 
-    public void criarFuncionario(String name, String email, String password, String cpf, String cargo) {
-        Funcionario funcionario = new Funcionario(name, email, password, cpf, true, cargo);
-        funcionarioRepository.salvar(funcionario);
+    public String criarFuncionario(String nome, String email, String senha, String cpf, String cargo) {
+        if (funcionarioRepository.findByCpf(cpf) == null) {
+            Funcionario funcionario = new Funcionario(nome, email, senha, cpf, true, cargo);
+            funcionarioRepository.salvar(funcionario);
+            return "✓ Funcionário criado com sucesso";
+        } else {
+            return "✗ Funcionário com CPF " + cpf + " já cadastrado";
+        }
     }
 
-    public void editarFuncionario(String cpf, String name, String email, String password, String cargo) throws FuncionarioNotFoundException {
+    public String editarFuncionario(String cpf, String nome, String email, String senha, String cargo) {
         Funcionario funcionario = funcionarioRepository.findByCpf(cpf);
 
-        funcionario.setName(name);
-        funcionario.setEmail(email);
-        funcionario.setPassword(password);
-        funcionario.setCargo(cargo);
-
-        funcionarioRepository.atualizar(funcionario);
+        if (funcionario == null) {
+            return "✗ Funcionário com CPF " + cpf + " não encontrado";
+        } else {
+            funcionario.setNome(nome);
+            funcionario.setEmail(email);
+            funcionario.setSenha(senha);
+            funcionario.setCargo(cargo);
+            funcionarioRepository.atualizar(funcionario);
+            return "✓ Funcionário atualizado com sucesso";
+        }
     }
 
-    public Funcionario buscarFuncionarioPorCpf(String cpf) throws FuncionarioNotFoundException {
+    public Funcionario buscarFuncionarioPorCpf(String cpf) {
         return funcionarioRepository.findByCpf(cpf);
     }
 
     public void listarTodosFuncionarios() {
         for (Funcionario funcionario : funcionarioRepository.listarTodos()) {
             System.out.println("==== Funcionário ====");
-            System.out.println("Nome: " + funcionario.getName());
+            System.out.println("Nome: " + funcionario.getNome());
             System.out.println("Email: " + funcionario.getEmail());
             System.out.println("CPF: " + funcionario.getCpf());
             System.out.println("Cargo: " + funcionario.getCargo());
@@ -42,13 +50,23 @@ public class FuncionarioService {
         }
     }
 
-    public void deletarFuncionario(String cpf) throws FuncionarioNotFoundException {
-        funcionarioRepository.deletar(cpf);
+    public String deletarFuncionario(String cpf) {
+        if (funcionarioRepository.deletar(cpf)) {
+            return "✓ Funcionário deletado com sucesso";
+        } else {
+            return "✗ Funcionário com CPF " + cpf + " não encontrado";
+        }
     }
 
-    public void atualizarCargo(String cpf, String novoCargo) throws FuncionarioNotFoundException {
+    public String atualizarCargo(String cpf, String novoCargo) {
         Funcionario funcionario = funcionarioRepository.findByCpf(cpf);
-        funcionario.setCargo(novoCargo);
-        funcionarioRepository.atualizar(funcionario);
+
+        if (funcionario == null) {
+            return "✗ Funcionário com CPF " + cpf + " não encontrado";
+        } else {
+            funcionario.setCargo(novoCargo);
+            funcionarioRepository.atualizar(funcionario);
+            return "✓ Cargo atualizado com sucesso";
+        }
     }
 }

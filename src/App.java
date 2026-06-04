@@ -1,72 +1,34 @@
 import controller.ClientController;
 import controller.FuncionarioController;
-import controller.ProdutoController;
-import controller.TransacaoController;
-import model.Produto;
 
 public class App {
-
-    public static void main(String[] args) {
-        ProdutoController produtoController = new ProdutoController();
+    public static void main(String[] args) throws Exception {
         ClientController clientController = new ClientController();
+         System.out.println("\n--- TESTE DE CLIENTE ---");
+        clientController.criar("Maria Silva", "maria@email.com", "123456", "11122233344", "Rua das Flores, 100", "84999990000");
+        clientController.criar("Maria Silva", "maria@email.com", "123456", "11122233344", "Rua das Flores, 100", "84999990000");
+        clientController.buscarPorCpf("11122233344");        
+        clientController.editar("11122233344", "Maria Souza", "maria.souza@email.com", "654321", "Av. Central, 200", "84988880000");        
+        clientController.atualizarEndereco("11122233344", "Rua Nova, 300");        
+        clientController.atualizarTelefone("11122233344", "84977770000");       
+        clientController.listar();
+        clientController.deletar("11122233344");
+        clientController.buscarPorCpf("11122233344");
+
+        System.out.println("\n--- TESTE DE FUNCIONARIO ---");
         FuncionarioController funcionarioController = new FuncionarioController();
-        TransacaoController transacaoController = new TransacaoController();
-
-        System.out.println("--- TESTE DE CADASTRO ---");
-        String resultadoCadastro1 = produtoController.cadastrarProduto(
-                "BAT-001", "Baton Matte", "Vult", "Maquiagem", 15.00, 35.00, 50, 10
-        );
-        System.out.println(resultadoCadastro1);
-
-        String resultadoCadastro2 = produtoController.cadastrarProduto(
-                "SHP-002", "Shampoo Neutro", "Granado", "Cabelo", 12.00, 28.00, 30, 5
-        );
-        System.out.println(resultadoCadastro2);
-
-
-        System.out.println("--- TESTE DE CADASTRO DE USUÁRIOS---");
-
-        funcionarioController.criar(
-                "Guilherme", "guilherme@loja.com", "guilherme123", "123456789", "Gerente"
-        );
-
-        clientController.criar(
-                "Maria Silva", "maria@email.com", "maria.silva", "senha123", "Rua das Flores, 123", "99999-0000"
-        );
-
-        System.out.println("\n--- ESTADO FINAL DO ESTOQUE ---");
-        for (Produto produto : produtoController.listarTodos()) {
-            System.out.println(produto.toString());
-        }
-        /*System.out.println("\n--- TESTE DE REGRAS DE NEGOCIO (ERRO ESPERADO) ---");
-        String resultadoDuplicado = produtoController.cadastrarProduto(
-                "BAT-001", "Outro Batom", "Mac", "Maquiagem", 10.00, 20.00, 10, 2
-        );
-        System.out.println(resultadoDuplicado);
-
-        String resultadoPrecoInvalido = produtoController.cadastrarProduto(
-                "PER-003", "Perfume Floral", "Natura", "Perfumaria", 100.00, 80.00, 10, 2
-        );
-        System.out.println(resultadoPrecoInvalido);
-
-        System.out.println("\n--- TESTE DE LEITURA (LISTAGEM) ---");
-        for (Produto produto : produtoController.listarTodos()) {
-            System.out.println(produto.toString());
-        }
-
-        System.out.println("\n--- TESTE DE EDICAO ---");
-        String resultadoEdicao = produtoController.editarProduto(
-                "BAT-001", "Batom Matte Ultra", "Vult", "Maquiagem", 15.00, 39.90, 45, 10
-        );
-        System.out.println(resultadoEdicao);
-
-        System.out.println("\n--- TESTE DE EXCLUSAO ---");
-        String resultadoExclusao = produtoController.excluirProduto("SHP-002");
-        System.out.println(resultadoExclusao);
-
-        System.out.println("\n--- ESTADO FINAL DO ESTOQUE ---");
-        for (Produto produto : produtoController.listarTodos()) {
-            System.out.println(produto.toString());
-        }*/
+        funcionarioController.criar("João Pereira", "joao@email.com", "123456", "55566677788", "Vendedor");
+        funcionarioController.criar("João Pereira", "joao@email.com", "123456", "55566677788", "Vendedor");
+        funcionarioController.criar("João", "joao123@email.com", "123456", "44466677788", "Vendedor");
+        funcionarioController.buscarPorCpf("44466677788");
+        funcionarioController.editar("55566677788", "João Pereira", "joao.pereira@email.com", "654321", "Caixa");
+        funcionarioController.atualizarCargo("55566677788", "Gerente");
+        funcionarioController.atualizarCargo("55566677788", "Vendedor");
+        funcionarioController.deletar("55566677788");
+        funcionarioController.buscarPorCpf("55566677788");
     }
+
+
+
+
 }

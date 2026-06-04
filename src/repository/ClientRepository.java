@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
-import model.exceptions.ClientNotFoundException;
 
 public class ClientRepository {
     private static final String FILE_NAME = "clientes.txt";
@@ -53,9 +52,9 @@ public class ClientRepository {
 
             for (Cliente cliente : listaClientes) {
                 fileWriter.write(
-                    cliente.getName() + ";" +
+                    cliente.getNome() + ";" +
                     cliente.getEmail() + ";" +
-                    cliente.getPassword() + ";" +
+                    cliente.getSenha() + ";" +
                     cliente.getCpf() + ";" +
                     cliente.isAtivo() + ";" +
                     cliente.getEndereco() + ";" +
@@ -69,35 +68,35 @@ public class ClientRepository {
         }
     }
 
-    public Cliente findByCpf(String cpf) throws ClientNotFoundException {
+    public Cliente findByCpf(String cpf) {
         for (Cliente cliente : listaClientes) {
             if (cliente.getCpf().equals(cpf)) {
                 return cliente;
             }
         }
-        throw new ClientNotFoundException("Cliente com CPF " + cpf + " não encontrado");
+        return null;
     }
 
-    public void atualizar(Cliente cliente) throws ClientNotFoundException {
+    public boolean atualizar(Cliente cliente) {
         for (int i = 0; i < listaClientes.size(); i++) {
             if (listaClientes.get(i).getCpf().equals(cliente.getCpf())) {
                 listaClientes.set(i, cliente);
                 salvarNoArquivo();
-                return;
+                return true;
             }
         }
-        throw new ClientNotFoundException("Cliente não encontrado para atualizar");
+        return false;
     }
 
-    public void deletar(String cpf) throws ClientNotFoundException {
+    public boolean deletar(String cpf) {
         for (Cliente cliente : listaClientes) {
             if (cliente.getCpf().equals(cpf)) {
                 listaClientes.remove(cliente);
                 salvarNoArquivo();
-                return;
+                return true;
             }
         }
-        throw new ClientNotFoundException("Cliente não encontrado para deletar");
+        return false;
     }
 
     public List<Cliente> listarTodos() {

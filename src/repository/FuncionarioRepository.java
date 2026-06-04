@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Funcionario;
-import model.exceptions.FuncionarioNotFoundException;
 
 
 public class FuncionarioRepository {
@@ -53,9 +52,9 @@ public class FuncionarioRepository {
 
             for (Funcionario funcionario : listaFuncionarios) {
                 fileWriter.write(
-                    funcionario.getName() + ";" +
+                    funcionario.getNome() + ";" +
                     funcionario.getEmail() + ";" +
-                    funcionario.getPassword() + ";" +
+                    funcionario.getSenha() + ";" +
                     funcionario.getCpf() + ";" +
                     funcionario.isAtivo() + ";" +
                     funcionario.getCargo() + "\n"
@@ -68,35 +67,35 @@ public class FuncionarioRepository {
         }
     }
 
-    public Funcionario findByCpf(String cpf) throws FuncionarioNotFoundException {
+    public Funcionario findByCpf(String cpf) {
         for (Funcionario funcionario : listaFuncionarios) {
             if (funcionario.getCpf().equals(cpf)) {
                 return funcionario;
             }
         }
-        throw new FuncionarioNotFoundException("Funcionário com CPF " + cpf + " não encontrado");
+        return null;
     }
 
-    public void atualizar(Funcionario funcionario) throws FuncionarioNotFoundException {
+    public boolean atualizar(Funcionario funcionario) {
         for (int i = 0; i < listaFuncionarios.size(); i++) {
             if (listaFuncionarios.get(i).getCpf().equals(funcionario.getCpf())) {
                 listaFuncionarios.set(i, funcionario);
                 salvarNoArquivo();
-                return;
+                return true;
             }
         }
-        throw new FuncionarioNotFoundException("Funcionário não encontrado para atualizar");
+        return false;
     }
 
-    public void deletar(String cpf) throws FuncionarioNotFoundException {
+    public boolean deletar(String cpf) {
         for (Funcionario funcionario : listaFuncionarios) {
             if (funcionario.getCpf().equals(cpf)) {
                 listaFuncionarios.remove(funcionario);
                 salvarNoArquivo();
-                return;
+                return true;
             }
         }
-        throw new FuncionarioNotFoundException("Funcionário não encontrado para deletar");
+        return false;
     }
 
     public List<Funcionario> listarTodos() {

@@ -1,6 +1,5 @@
 package controller;
 import model.Cliente;
-import model.exceptions.ClientNotFoundException;
 import service.ClientService;
 
 
@@ -11,30 +10,21 @@ public class ClientController {
         this.clientService = new ClientService();
     }
 
-    public void criar(String name, String email, String password, String cpf, String endereco, String telefone) {
-        try {
-            clientService.criarClient(name, email, password, cpf, endereco, telefone);
-            System.out.println("✓ Cliente criado com sucesso");
-        } catch (Exception e) {
-            System.out.println("✗ Erro ao criar cliente: " + e.getMessage());
-        }
+    public void criar(String nome, String email, String senha, String cpf, String endereco, String telefone) {
+        System.out.println(clientService.criarClient(nome, email, senha, cpf, endereco, telefone));
     }
 
-    public void editar(String cpf, String name, String email, String password, String endereco, String telefone) {
-        try {
-            clientService.editarClient(cpf, name, email, password, endereco, telefone);
-            System.out.println("✓ Cliente atualizado com sucesso");
-        } catch (ClientNotFoundException e) {
-            System.out.println("✗ Cliente não encontrado: " + e.getMessage());
-        }
+    public void editar(String cpf, String nome, String email, String senha, String endereco, String telefone) {
+        System.out.println(clientService.editarClient(cpf, nome, email, senha, endereco, telefone));
     }
 
     public void buscarPorCpf(String cpf) {
-        try {
-            Cliente client = clientService.buscarClientPorCpf(cpf);
-            System.out.println("Cliente encontrado: " + client.getName());
-        } catch (ClientNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
+        Cliente client = clientService.buscarClientPorCpf(cpf);
+
+        if (client == null) {
+            System.out.println("✗ Cliente com CPF " + cpf + " não encontrado");
+        } else {
+            System.out.println("Cliente encontrado: " + client.getNome());
         }
     }
 
@@ -43,29 +33,14 @@ public class ClientController {
     }
 
     public void deletar(String cpf) {
-        try {
-            clientService.deletarClient(cpf);
-            System.out.println("✓ Cliente deletado com sucesso");
-        } catch (ClientNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
-        }
+        System.out.println(clientService.deletarClient(cpf));
     }
 
     public void atualizarEndereco(String cpf, String novoEndereco) {
-        try {
-            clientService.atualizarEndereco(cpf, novoEndereco);
-            System.out.println("✓ Endereço atualizado com sucesso");
-        } catch (ClientNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
-        }
+        System.out.println(clientService.atualizarEndereco(cpf, novoEndereco));
     }
 
     public void atualizarTelefone(String cpf, String novoTelefone) {
-        try {
-            clientService.atualizarTelefone(cpf, novoTelefone);
-            System.out.println("✓ Telefone atualizado com sucesso");
-        } catch (ClientNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
-        }
+        System.out.println(clientService.atualizarTelefone(cpf, novoTelefone));
     }
 }

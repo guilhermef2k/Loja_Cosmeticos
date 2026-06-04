@@ -1,7 +1,6 @@
 package controller; 
 
 import model.Funcionario;
-import model.exceptions.FuncionarioNotFoundException;
 import service.FuncionarioService;
 
 
@@ -12,30 +11,21 @@ public class FuncionarioController {
         this.funcionarioService = new FuncionarioService();
     }
 
-    public void criar(String name, String email, String password, String cpf, String cargo) {
-        try {
-            funcionarioService.criarFuncionario(name, email, password, cpf, cargo);
-            System.out.println("✓ Funcionário criado com sucesso");
-        } catch (Exception e) {
-            System.out.println("✗ Erro ao criar funcionário: " + e.getMessage());
-        }
+    public void criar(String nome, String email, String senha, String cpf, String cargo) {
+        System.out.println(funcionarioService.criarFuncionario(nome, email, senha, cpf, cargo));
     }
 
-    public void editar(String cpf, String name, String email, String password, String cargo) {
-        try {
-            funcionarioService.editarFuncionario(cpf, name, email, password, cargo);
-            System.out.println("✓ Funcionário atualizado com sucesso");
-        } catch (FuncionarioNotFoundException e) {
-            System.out.println("✗ Funcionário não encontrado: " + e.getMessage());
-        }
+    public void editar(String cpf, String nome, String email, String senha, String cargo) {
+        System.out.println(funcionarioService.editarFuncionario(cpf, nome, email, senha, cargo));
     }
 
     public void buscarPorCpf(String cpf) {
-        try {
-            Funcionario funcionario = funcionarioService.buscarFuncionarioPorCpf(cpf);
-            System.out.println("Funcionário encontrado: " + funcionario.getName());
-        } catch (FuncionarioNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
+        Funcionario funcionario = funcionarioService.buscarFuncionarioPorCpf(cpf);
+
+        if (funcionario == null) {
+            System.out.println("✗ Funcionário com CPF " + cpf + " não encontrado");
+        } else {
+            System.out.println("Funcionário encontrado: " + funcionario.getNome());
         }
     }
 
@@ -44,20 +34,10 @@ public class FuncionarioController {
     }
 
     public void deletar(String cpf) {
-        try {
-            funcionarioService.deletarFuncionario(cpf);
-            System.out.println("✓ Funcionário deletado com sucesso");
-        } catch (FuncionarioNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
-        }
+        System.out.println(funcionarioService.deletarFuncionario(cpf));
     }
 
     public void atualizarCargo(String cpf, String novoCargo) {
-        try {
-            funcionarioService.atualizarCargo(cpf, novoCargo);
-            System.out.println("✓ Cargo atualizado com sucesso");
-        } catch (FuncionarioNotFoundException e) {
-            System.out.println("✗ " + e.getMessage());
-        }
+        System.out.println(funcionarioService.atualizarCargo(cpf, novoCargo));
     }
 }
