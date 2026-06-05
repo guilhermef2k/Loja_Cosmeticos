@@ -47,13 +47,19 @@ public class TransacaoRepository {
     }
 
     public boolean existeTransacaoComId(String id) {
-        if (id == null || id.isEmpty()) {
+        if (id == null || id.trim().isEmpty()) {
             return false;
         }
 
-        for (Transacao transacao : transacoes) {
-            if (transacao.getId().equals(id)) {
-                return true;
+        List<String> linhasArquivo = listarRegistrosArquivo();
+
+        for (String linha : linhasArquivo) {
+            if (linha != null && !linha.trim().isEmpty()) {
+                String[] dados = linha.split(";");
+                
+                if (dados[0].equals(id)) {
+                    return true;
+                }
             }
         }
 
