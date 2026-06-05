@@ -1,10 +1,10 @@
 package model;
-public class Client extends User {
+public class Cliente extends User {
     private String endereco;
     private String telefone;
 
-    public Client (String name, String email, String password, String cpf, boolean ativo, String endereco, String telefone) {
-        super(name, email, password, cpf, ativo);
+    public Cliente (String nome, String email, String senha, String cpf, boolean ativo, String endereco, String telefone) {
+        super(nome, email, senha, cpf, ativo);
         this.endereco = endereco;
         this.telefone = telefone;
     }
@@ -20,13 +20,13 @@ public class Client extends User {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    public void editarCliente(String name, String email, String password, String cpf, boolean ativo, String endereco, String telefone) {
-        editarUsuario(name, email, password, cpf, ativo);
+    public void editarCliente(String nome, String email, String senha, String cpf, boolean ativo, String endereco, String telefone) {
+        editarUsuario(nome, email, senha, cpf, ativo);
         this.endereco = endereco;
         this.telefone = telefone;
     }
     public void verCliente() {
-        System.out.println("Nome: " + getName());
+        System.out.println("Nome: " + getNome());
         System.out.println("Email: " + getEmail());
         System.out.println("CPF: " + getCpf());
         System.out.println("Ativo: " + isAtivo());

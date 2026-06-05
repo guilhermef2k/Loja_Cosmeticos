@@ -1,0 +1,4 @@
+Admin Chefe;admin@email.com;admin;00000000000;true;Chefe;
+Maria Vendedora;maria@email.com;123;11111111111;true;Vendedor;00000000000
+Joao Gerente;joao@email.com;123;22222222222;true;Gerente;00000000000
+Pedro Vendedor;pedro@email.com;123;33333333333;true;Vendedor;22222222222

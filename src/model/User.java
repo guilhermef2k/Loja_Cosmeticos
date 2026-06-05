@@ -1,26 +1,26 @@
 package model;
 public class User {
-    private String name;
+    private String nome;
     private String email;
-    private String password;
+    private String senha;
     private String cpf;
     private boolean ativo;
 
-    public User(String name, String email, String password, String cpf,boolean ativo) {
-        this.name = name;
+    public User(String nome, String email, String senha, String cpf,boolean ativo) {
+        this.nome = nome;
         this.email = email;
-        this.password = password;
+        this.senha = senha;
         this.cpf = cpf;
         this.ativo = ativo;
 
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -38,32 +38,32 @@ public class User {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public void criarUsuario(String name, String email, String password, String cpf, boolean ativo) {
-        this.name = name;
+    public void criarUsuario(String nome, String email, String senha, String cpf, boolean ativo) {
+        this.nome = nome;
         this.email = email;
-        this.password = password;
+        this.senha = senha;
         this.cpf = cpf;
         this.ativo = ativo;
     }
-    public void editarUsuario(String name, String email, String password, String cpf, boolean ativo) {
-        this.name = name;
+    public void editarUsuario(String nome, String email, String senha, String cpf, boolean ativo) {
+        this.nome = nome;
         this.email = email;
-        this.password = password;
+        this.senha = senha;
         this.cpf = cpf;
         this.ativo = ativo;
     }
     public void verUsuario() {
-        System.out.println("Nome: " + name);
+        System.out.println("Nome: " + nome);
         System.out.println("Email: " + email);
         System.out.println("CPF: " + cpf);
         System.out.println("Ativo: " + ativo);
     }
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public boolean isAtivo() {
