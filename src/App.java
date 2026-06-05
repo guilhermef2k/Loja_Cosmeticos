@@ -24,7 +24,7 @@ public class App {
 
         
         System.out.println("\n--- INICIANDO FLUXO DE VENDA ---");
-        Transacao venda = transacaoController.iniciarVenda("VND-003", cliente);
+        Transacao venda = transacaoController.iniciarVenda("VND-007", cliente);
 
         System.out.println("Adicionando 2 Batons ao carrinho...");
         transacaoController.adicionarItem(venda, produto1, 2, produto1.getPrecoVenda());

@@ -10,3 +10,5 @@ VND-004;VENDA;2026-06-04T16:04:32.279547500;model.Cliente@d716361;;98.0;Baton Ma
 VND-004;VENDA;2026-06-04T16:09:25.540358;model.Cliente@d716361;;98.0;Baton Matte,2,35.0,70.0|Shampoo Neutro,1,28.0,28.0
 VND-004;VENDA;2026-06-04T16:12:32.353806200;model.Cliente@d716361;;98.0;Baton Matte,2,35.0,70.0|Shampoo Neutro,1,28.0,28.0
 VND-003;VENDA;2026-06-04T18:54:19.674165900;model.Cliente@6ff3c5b5;;98.0;Baton Matte,2,35.0,70.0|Shampoo Neutro,1,28.0,28.0
+VND-002;VENDA;2026-06-04T18:59:52.162719;model.Cliente@6ff3c5b5;;98.0;Baton Matte,2,35.0,70.0|Shampoo Neutro,1,28.0,28.0
+VND-001;VENDA;2026-06-04T19:01:02.485425900;model.Cliente@6ff3c5b5;;98.0;Baton Matte,2,35.0,70.0|Shampoo Neutro,1,28.0,28.0

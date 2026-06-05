@@ -1,2 +1,2 @@
-BAT-001;Baton Matte;Vult;Maquiagem;15.0;35.0;4;10
-SHP-002;Shampoo Neutro;Granado;Cabelo;12.0;28.0;7;5
+BAT-001;Baton Matte;Vult;Maquiagem;15.0;35.0;0;10
+SHP-002;Shampoo Neutro;Granado;Cabelo;12.0;28.0;5;5
