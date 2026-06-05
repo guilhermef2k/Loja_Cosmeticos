@@ -6,7 +6,7 @@ O projeto simula as principais operações de uma loja de cosméticos, incluindo
 
 ---
 
-## 📌 Objetivo do Projeto
+## Objetivo do Projeto
 
 O objetivo do sistema é controlar as operações de uma loja de cosméticos de forma organizada, permitindo:
 
@@ -22,7 +22,7 @@ O objetivo do sistema é controlar as operações de uma loja de cosméticos de 
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## Arquitetura do Sistema
 
 O projeto foi desenvolvido utilizando o padrão **MVC (Model-View-Controller)**, com a adição das camadas **Service** e **Repository** para melhorar a separação de responsabilidades.
 
@@ -115,7 +115,7 @@ Ela pode ser implementada por menus no terminal ou interface gráfica. No estado
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ### Módulo de Produtos
 
@@ -174,7 +174,7 @@ Funcionalidades principais:
 
 ---
 
-## 🛒 Funcionamento das Transações
+## Funcionamento das Transações
 
 As transações funcionam com o conceito de **carrinho de compras**.
 
@@ -205,7 +205,7 @@ Durante a finalização de uma venda, o sistema verifica se existe estoque sufic
 
 ---
 
-## 💾 Persistência de Dados
+## Persistência de Dados
 
 O sistema utiliza arquivos `.txt` para salvar os dados de forma persistente.
 
@@ -224,7 +224,7 @@ A persistência é feita na camada `repository`, mantendo a separação correta 
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 Estrutura geral do projeto:
 
@@ -267,7 +267,7 @@ Projeto_POO/
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Java**
 - **Programação Orientada a Objetos**
@@ -282,7 +282,7 @@ O projeto foi desenvolvido sem uso de frameworks externos, utilizando apenas rec
 
 ---
 
-## ⚙️ Como Executar o Projeto
+## Como Executar o Projeto
 
 ### 1. Pré-requisitos
 
@@ -352,7 +352,7 @@ java -cp bin App
 
 ---
 
-## 🧪 Testes Realizados
+## Testes Realizados
 
 Durante o desenvolvimento, foram realizados testes manuais para validar o funcionamento dos principais módulos.
 
@@ -393,7 +393,7 @@ Arquivo criado corretamente: data\transacoes.txt
 
 ---
 
-## 🔒 Regras de Negócio
+## Regras de Negócio
 
 O sistema aplica algumas regras importantes:
 
@@ -408,7 +408,7 @@ O sistema aplica algumas regras importantes:
 
 ---
 
-## 📊 Diagrama de Classes
+## Diagrama de Classes
 
 O projeto possui um diagrama de classes elaborado no Lucidchart.
 
@@ -418,7 +418,7 @@ https://lucid.app/lucidchart/54d2e07c-f37b-405e-804f-9cf5bf544494/edit?invitatio
 
 ---
 
-## 🌱 Branches do Projeto
+## Branches do Projeto
 
 O desenvolvimento foi dividido por responsabilidades, utilizando branches separadas.
 
@@ -437,7 +437,7 @@ Essa divisão permitiu que cada integrante trabalhasse em sua parte sem alterar 
 
 ---
 
-## 👥 Divisão de Responsabilidades
+## Divisão de Responsabilidades
 
 ### Gestão de Produtos
 
@@ -457,7 +457,7 @@ Responsável pela interação do usuário com o sistema, conectando os menus ou 
 
 ---
 
-## 📌 Conceitos de POO Aplicados
+## Conceitos de POO Aplicados
 
 O projeto aplica os principais conceitos de Programação Orientada a Objetos:
 
@@ -483,7 +483,7 @@ Cada camada possui uma função específica, evitando que regras de negócio, pe
 
 ---
 
-## 📄 Exemplo de Fluxo de Venda
+## Exemplo de Fluxo de Venda
 
 Fluxo simplificado de uma venda:
 
@@ -502,7 +502,7 @@ Fluxo simplificado de uma venda:
 
 ---
 
-## ⚠️ Observações
+## Observações
 
 - Os arquivos `.txt` são criados automaticamente durante a execução do sistema.
 - Arquivos gerados por compilação, como `bin/`, não devem ser versionados.
@@ -511,7 +511,7 @@ Fluxo simplificado de uma venda:
 
 ---
 
-## 👨‍💻 Autores
+## Autores
 
 Projeto desenvolvido por estudantes da disciplina de **Programação Orientada a Objetos (POO)** da **Universidade Federal Rural do Semi-Árido (UFERSA)**.
 
@@ -524,7 +524,7 @@ Equipe:
 
 ---
 
-## 📚 Disciplina
+## Disciplina
 
 **PEX0130 - Programação Orientada a Objetos**
 
