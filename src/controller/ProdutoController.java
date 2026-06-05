@@ -10,7 +10,7 @@ public class ProdutoController {
         this.service = new ProdutoService();
     }
 
-    public String cadastrarProduto(String codigo, String nome, String marca, String categoria, double precoCusto, double precoVenda, int estoque, int estoqueMin) {
+    public String adicionarProduto(String codigo, String nome, String marca, String categoria, double precoCusto, double precoVenda, int estoque, int estoqueMin) {
         try {
             Produto produto = new Produto(codigo, nome, marca, categoria, precoCusto, precoVenda, estoque, estoqueMin);
             service.cadastrarProduto(produto);
@@ -32,7 +32,7 @@ public class ProdutoController {
         }
     }
 
-    public String excluirProduto(String codigo) {
+    public String removerProduto(String codigo) {
         try {
             service.excluirProduto(codigo);
             return "Sucesso: Produto removido do sistema!";
@@ -41,11 +41,11 @@ public class ProdutoController {
         }
     }
 
-    public List<Produto> listarTodos() {
+    public List<Produto> listarProdutos() {
         return service.listarTodos();
     }
 
-    public Produto buscarPorCodigo(String codigo) {
+    public Produto buscarProduto(String codigo) {
         return service.buscarPorCodigo(codigo);
     }
 }

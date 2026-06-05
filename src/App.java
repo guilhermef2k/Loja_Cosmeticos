@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import controller.ClientController;
 import controller.FuncionarioController;
 import controller.TransacaoController;
@@ -47,5 +48,16 @@ public class App {
         for (Produto produto : produtoController.listarTodos()) {
             System.out.println(produto.toString());
         }
+=======
+import view.MenuPrincipal;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.exibir();
+
+>>>>>>> 12593d3f0688e92838c967a5485c2c6fc12cc303
     }
 }
