@@ -5,8 +5,12 @@ import controller.ClientController;
 
 public class ClienteView {
 
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
     private ClientController controller = new ClientController();
+
+    public ClienteView(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void menuClientes() {
 

@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class UsuarioView {
 
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    public UsuarioView(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void menuUsuarios() {
 
@@ -19,16 +23,17 @@ public class UsuarioView {
             System.out.print("Opção: ");
 
             opcao = sc.nextInt();
+            sc.nextLine();
 
             switch (opcao) {
 
                 case 1:
-                    ClienteView clienteView = new ClienteView();
+                    ClienteView clienteView = new ClienteView(sc);
                     clienteView.menuClientes();
                     break;
 
                 case 2:
-                    FuncionarioView funcionarioView = new FuncionarioView();
+                    FuncionarioView funcionarioView = new FuncionarioView(sc);
                     funcionarioView.menuFuncionarios();
                     break;
 

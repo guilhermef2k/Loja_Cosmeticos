@@ -20,21 +20,22 @@ public class MenuPrincipal {
             System.out.print("Opção: ");
 
             opcao = sc.nextInt();
+            sc.nextLine();
 
             switch (opcao) {
 
                 case 1:
-                    UsuarioView usuarioView = new UsuarioView();
+                    UsuarioView usuarioView = new UsuarioView(sc);
                     usuarioView.menuUsuarios();
                     break;
 
                 case 2:
-                    ProdutoView produtoView = new ProdutoView();
+                    ProdutoView produtoView = new ProdutoView(sc);
                     produtoView.menuProdutos();
                     break;
 
                 case 3:
-                    TransacaoView transacaoView = new TransacaoView();
+                    TransacaoView transacaoView = new TransacaoView(sc);
                     transacaoView.menuTransacoes();
                     break;
 

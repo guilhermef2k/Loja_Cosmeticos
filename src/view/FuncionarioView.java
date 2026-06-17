@@ -5,8 +5,12 @@ import controller.FuncionarioController;
 
 public class FuncionarioView {
 
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
     private FuncionarioController controller = new FuncionarioController();
+
+    public FuncionarioView(Scanner sc) {
+        this.sc = sc;
+    }
 
     public void menuFuncionarios() {
 

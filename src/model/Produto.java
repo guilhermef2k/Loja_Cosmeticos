@@ -10,9 +10,9 @@ public class Produto {
     private int estoque;
     private int estoqueMin;
 
-    public Produto(String nome, String codigo, String marca, String categoria, Double precoCusto, Double precoVenda, int estoque, int estoqueMin){
-        this.nome = nome;
+    public Produto(String codigo, String nome, String marca, String categoria, Double precoCusto, Double precoVenda, int estoque, int estoqueMin){
         this.codigo = codigo;
+        this.nome = nome;
         this.marca = marca;
         this.categoria = categoria;
         this.precoCusto = precoCusto;
